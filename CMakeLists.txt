@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 4.1)
-project(untitled5 C)
+project(PowerQualityAnalyser C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(untitled5 main.c
+add_executable(PowerQualityAnalyser main.c
         waveform.c
         io.c
         waveform.h
