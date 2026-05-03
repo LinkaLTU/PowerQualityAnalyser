@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "io.h"
+#include "waveform.h"
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -20,7 +22,18 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    WaveformSample *samples = malloc(row_count * sizeof(WaveformSample)); //allocate memory for all CSV samples
+
+    if (samples == NULL) {
+        printf("Error: Memory allocation failed.\n");
+        return 1;
+    }
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
+
+    free(samples); // cleans memory
+
+    return 0;
 }
