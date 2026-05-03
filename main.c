@@ -13,6 +13,14 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    int row_count = count_csv_rows(filename);
+
+    if (row_count <= 0) {
+        printf("Error: No CSV data rows found.\n");
+        return 1;
+    }
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
+    printf("Rows counted: %d\n", row_count);
 }
