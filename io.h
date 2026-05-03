@@ -1,8 +1,6 @@
-//
-// Created by jvara on 03/05/2026.
-//
+#ifndef IO_H
+#define IO_H
 
-#ifndef UNTITLED5_IO_H
-#define UNTITLED5_IO_H
+int check_file_can_open(const char *filename);
 
-#endif //UNTITLED5_IO_H
+#endif
