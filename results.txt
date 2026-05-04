@@ -1,0 +1,26 @@
+Power Quality Waveform Analyser Results
+
+RMS Voltage:
+Phase A RMS: 229.81 V
+Phase B RMS: 229.81 V
+Phase C RMS: 229.81 V
+
+Peak-to-Peak Voltage:
+Phase A peak-to-peak: 650.00 V
+Phase B peak-to-peak: 649.86 V
+Phase C peak-to-peak: 649.86 V
+
+DC Offset:
+Phase A DC offset: -0.00 V
+Phase B DC offset: 0.00 V
+Phase C DC offset: -0.00 V
+
+Clipped Samples:
+Phase A clipped samples: 20
+Phase B clipped samples: 20
+Phase C clipped samples: 20
+
+RMS Voltage Compliance:
+Phase A: COMPLIANT
+Phase B: COMPLIANT
+Phase C: COMPLIANT

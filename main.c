@@ -90,6 +90,23 @@ int main(int argc, char *argv[]) {
     printf("Phase B compliance: %s\n", compliant_B ? "COMPLIANT" : "OUT OF TOLERANCE");
     printf("Phase C compliance: %s\n\n", compliant_C ? "COMPLIANT" : "OUT OF TOLERANCE");
 
+    // write the results to results.txt
+    int results_written = write_results_file("results.txt",
+    rms_A, rms_B, rms_C,
+    peak_to_peak_A, peak_to_peak_B, peak_to_peak_C,
+    dc_offset_A, dc_offset_B, dc_offset_C,
+    clipped_A, clipped_B, clipped_C,
+    compliant_A, compliant_B, compliant_C
+);
+
+    // stops and releases memory if the results file could not be written
+    if (!results_written) {
+        free(samples);
+        return 1;
+    }
+
+    printf("Results written to results.txt\n");
+
     free(samples); // Releases allocated memory
 
     return 0;
