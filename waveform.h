@@ -12,4 +12,7 @@ typedef struct {
     double thd_percent;
 } WaveformSample;
 
+// Function to calculate RMS
+double compute_rms(WaveformSample *samples, int row_count, char phase);
+
 #endif

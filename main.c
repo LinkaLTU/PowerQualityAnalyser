@@ -39,10 +39,19 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    // Calculate RMS voltage for each phase
+    double rms_A = compute_rms(samples, loaded_rows, 'A');
+    double rms_B = compute_rms(samples, loaded_rows, 'B');
+    double rms_C = compute_rms(samples, loaded_rows, 'C');
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
     printf("Rows loaded: %d\n", loaded_rows);
+
+    printf("Phase A RMS: %.2f V\n", rms_A);
+    printf("Phase B RMS: %.2f V\n", rms_B);
+    printf("Phase C RMS: %.2f V\n", rms_C);
 
     free(samples); // cleans memory
 
