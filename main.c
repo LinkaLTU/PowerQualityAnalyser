@@ -6,6 +6,7 @@
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("Usage: %s <csv_filename>\n", argv[0]);
+        printf("Error: Please provide exactly one CSV filename.\n");
         return 1; // Returns 1 if either no files or too many files found in program arguments
     }
 
