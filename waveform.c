@@ -78,3 +78,28 @@ double compute_dc_offset(WaveformSample *samples, int row_count, char phase) {
 
     return sum / row_count;
 }
+
+// Using function here to count clipped samples for a selected phase
+int count_clipped_samples(WaveformSample *samples, int row_count, char phase) {
+    int clipped_count = 0;
+    double limit = 324.9;
+
+    // Loops through every loaded sample
+    for (int i = 0; i < row_count; i++) {
+        double voltage = 0.0;
+
+        if (phase == 'A') {
+            voltage = samples[i].phase_A_voltage;
+        } else if (phase == 'B') {
+            voltage = samples[i].phase_B_voltage;
+        } else if (phase == 'C') {
+            voltage = samples[i].phase_C_voltage;
+        }
+
+        if (voltage >= limit || voltage <= -limit) {
+            clipped_count++;
+        }
+    }
+
+    return clipped_count;
+}

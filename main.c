@@ -54,6 +54,11 @@ int main(int argc, char *argv[]) {
     double dc_offset_B = compute_dc_offset(samples, loaded_rows, 'B');
     double dc_offset_C = compute_dc_offset(samples, loaded_rows, 'C');
 
+    // Count clipped samples for each phase
+    int clipped_A = count_clipped_samples(samples, loaded_rows, 'A');
+    int clipped_B = count_clipped_samples(samples, loaded_rows, 'B');
+    int clipped_C = count_clipped_samples(samples, loaded_rows, 'C');
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
@@ -70,6 +75,10 @@ int main(int argc, char *argv[]) {
     printf("Phase A DC offset: %.2f V\n", dc_offset_A);
     printf("Phase B DC offset: %.2f V\n", dc_offset_B);
     printf("Phase C DC offset: %.2f V\n\n", dc_offset_C);
+
+    printf("Phase A clipped samples: %d\n", clipped_A);
+    printf("Phase B clipped samples: %d\n", clipped_B);
+    printf("Phase C clipped samples: %d\n\n", clipped_C);
 
     free(samples); // Releases allocated memory
 

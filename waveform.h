@@ -21,4 +21,7 @@ double compute_peak_to_peak(WaveformSample *samples, int row_count, char phase);
 // Function to calculate average voltage
 double compute_dc_offset(WaveformSample *samples, int row_count, char phase);
 
+// Function to count clipped samples
+int count_clipped_samples(WaveformSample *samples, int row_count, char phase);
+
 #endif
