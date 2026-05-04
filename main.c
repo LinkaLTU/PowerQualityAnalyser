@@ -44,16 +44,25 @@ int main(int argc, char *argv[]) {
     double rms_B = compute_rms(samples, loaded_rows, 'B');
     double rms_C = compute_rms(samples, loaded_rows, 'C');
 
+    // Calculate peak to peak voltage for each phase
+    double peak_to_peak_A = compute_peak_to_peak(samples, loaded_rows, 'A');
+    double peak_to_peak_B = compute_peak_to_peak(samples, loaded_rows, 'B');
+    double peak_to_peak_C = compute_peak_to_peak(samples, loaded_rows, 'C');
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
-    printf("Rows loaded: %d\n", loaded_rows);
+    printf("Rows loaded: %d\n\n", loaded_rows);
 
     printf("Phase A RMS: %.2f V\n", rms_A);
     printf("Phase B RMS: %.2f V\n", rms_B);
-    printf("Phase C RMS: %.2f V\n", rms_C);
+    printf("Phase C RMS: %.2f V\n\n", rms_C);
 
-    free(samples); // cleans memory
+    printf("Phase A peak-to-peak: %.2f V\n", peak_to_peak_A);
+    printf("Phase B peak-to-peak: %.2f V\n", peak_to_peak_B);
+    printf("Phase C peak-to-peak: %.2f V\n\n", peak_to_peak_C);
+
+    free(samples); // Releases allocated memory
 
     return 0;
 }

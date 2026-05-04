@@ -15,4 +15,7 @@ typedef struct {
 // Function to calculate RMS
 double compute_rms(WaveformSample *samples, int row_count, char phase);
 
+// Function to calculate peak-to-peak voltage
+double compute_peak_to_peak(WaveformSample *samples, int row_count, char phase);
+
 #endif
