@@ -22,16 +22,27 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    WaveformSample *samples = malloc(row_count * sizeof(WaveformSample)); //allocate memory for all CSV samples
+    //allocate memory for all waveform samples
+    WaveformSample *samples = malloc(row_count * sizeof(WaveformSample));
 
     if (samples == NULL) {
         printf("Error: Memory allocation failed.\n");
         return 1;
     }
 
+    // loads the csv data
+    int loaded_rows = load_csv_data(filename, samples, row_count);
+
+    if (loaded_rows <= 0) {
+        printf("Error: No CSV data loaded.\n");
+        free(samples);
+        return 1;
+    }
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
+    printf("Rows loaded: %d\n", loaded_rows);
 
     free(samples); // cleans memory
 
