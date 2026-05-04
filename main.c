@@ -49,6 +49,11 @@ int main(int argc, char *argv[]) {
     double peak_to_peak_B = compute_peak_to_peak(samples, loaded_rows, 'B');
     double peak_to_peak_C = compute_peak_to_peak(samples, loaded_rows, 'C');
 
+    // Calculate average voltage for each phase
+    double dc_offset_A = compute_dc_offset(samples, loaded_rows, 'A');
+    double dc_offset_B = compute_dc_offset(samples, loaded_rows, 'B');
+    double dc_offset_C = compute_dc_offset(samples, loaded_rows, 'C');
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
@@ -61,6 +66,10 @@ int main(int argc, char *argv[]) {
     printf("Phase A peak-to-peak: %.2f V\n", peak_to_peak_A);
     printf("Phase B peak-to-peak: %.2f V\n", peak_to_peak_B);
     printf("Phase C peak-to-peak: %.2f V\n\n", peak_to_peak_C);
+
+    printf("Phase A DC offset: %.2f V\n", dc_offset_A);
+    printf("Phase B DC offset: %.2f V\n", dc_offset_B);
+    printf("Phase C DC offset: %.2f V\n\n", dc_offset_C);
 
     free(samples); // Releases allocated memory
 
