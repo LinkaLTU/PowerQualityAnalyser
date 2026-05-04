@@ -24,4 +24,7 @@ double compute_dc_offset(WaveformSample *samples, int row_count, char phase);
 // Function to count clipped samples
 int count_clipped_samples(WaveformSample *samples, int row_count, char phase);
 
+// Function to check if RMS voltage is within the allowed tolerance
+int check_compliance(double rms_voltage);
+
 #endif

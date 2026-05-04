@@ -59,6 +59,11 @@ int main(int argc, char *argv[]) {
     int clipped_B = count_clipped_samples(samples, loaded_rows, 'B');
     int clipped_C = count_clipped_samples(samples, loaded_rows, 'C');
 
+    // Check RMS voltage tolerance for each phase
+    int compliant_A = check_compliance(rms_A);
+    int compliant_B = check_compliance(rms_B);
+    int compliant_C = check_compliance(rms_C);
+
     printf("Power Quality Waveform Analyser\n");
     printf("Input file: %s\n", argv[1]);
     printf("Rows counted: %d\n", row_count);
@@ -79,6 +84,11 @@ int main(int argc, char *argv[]) {
     printf("Phase A clipped samples: %d\n", clipped_A);
     printf("Phase B clipped samples: %d\n", clipped_B);
     printf("Phase C clipped samples: %d\n\n", clipped_C);
+
+    // if compliant is 1 print COMPLIANT otherwise it prints OUT OF TOLERANCE
+    printf("Phase A compliance: %s\n", compliant_A ? "COMPLIANT" : "OUT OF TOLERANCE");
+    printf("Phase B compliance: %s\n", compliant_B ? "COMPLIANT" : "OUT OF TOLERANCE");
+    printf("Phase C compliance: %s\n\n", compliant_C ? "COMPLIANT" : "OUT OF TOLERANCE");
 
     free(samples); // Releases allocated memory
 

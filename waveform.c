@@ -103,3 +103,15 @@ int count_clipped_samples(WaveformSample *samples, int row_count, char phase) {
 
     return clipped_count;
 }
+
+// Using function here to check if RMS voltage is within the allowed tolerance
+int check_compliance(double rms_voltage) {
+    double lower_limit = 207.0;
+    double upper_limit = 253.0;
+
+    if (rms_voltage >= lower_limit && rms_voltage <= upper_limit) {
+        return 1; //compliant
+    } else {
+        return 0; //non compliant
+    }
+}
